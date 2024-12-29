@@ -10,7 +10,7 @@ This project is a production line system designed to automate sorting tasks usin
 - **Color Detection**: Utilizes the TCS3200 sensor with Timer0 and an external interrupt to detect object colors (red, green, blue).
 - **Object Detection**:
   - An IR sensor identifies objects approaching the color sensor.
-  - Three additional IR sensors, paired with SG90 servos and 3D-printed linear actuators, manage object movement near designated servos.
+  - Three additional IR sensors, paired with SG90 servos and 3D-printed linear actuators to detect object movement near designated actuators.
 - **Conveyor Belt Control**:
   - A DC motor, powered by PWM signals from Timer1, drives a 3D-printed conveyor belt.
   - The L298N DC motor driver ensures precise motor control.
