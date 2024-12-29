@@ -62,7 +62,7 @@ This project is a production line system designed to automate sorting tasks usin
 
 ## How to Use
 
-1. Use the keypad to set sorting criteria and monitor the process on the LCD.
+1. Use the User Interface to set sorting criteria and monitor the process on the LCD.
 2. Place an object on the conveyor belt.
 3. The system automatically detects the object's color and sorts it into the correct bin.
 
