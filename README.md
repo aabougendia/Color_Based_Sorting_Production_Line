@@ -44,7 +44,7 @@ This project is a production line system designed to automate sorting tasks usin
   - 74147 10-to-4 priority encoder
 - **Power Supplies**:
   - 9V 1A power adapter
-  - 5V 2A power supply
+  - 5V power supply
 - **Display**: Character LCD for system status and error messages
 - **Keypad**: 4x1 Keypad For operator input
 - **Buzzer and LEDs**: Three LEDs and a 5v buzzer for system status and alerts
