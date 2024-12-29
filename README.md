@@ -12,28 +12,24 @@ This project is a production line system designed to automate sorting tasks usin
   - An IR sensor identifies objects approaching the color sensor.
   - Three additional IR sensors, paired with SG90 servos and 3D-printed linear actuators to detect object movement near designated actuators.
 - **Conveyor Belt Control**:
-  - A DC motor, powered by PWM signals from Timer1, drives a 3D-printed conveyor belt.
-  - The L298N DC motor driver ensures precise motor control.
+  - A DC motor, driven by an L298N motor driver and PWM signal from Timer1 to drive a 3D-printed conveyor belt system.
 - **User Interface**:
   - Operators can set sorting criteria (e.g., assigning specific colors to bins) via a keypad.
   - Displays system status, the number of objects sorted, and real-time error messages on an LCD.
 - **Manual Override**:
-  - Enables operators to pause the conveyor, override sorting, or shut down the system in emergencies.
+  - Enables operators to pause the conveyor or shut down the system in emergencies.
 - **Automatic Error Detection**:
-  - Identifies sorting errors by tracking sorting times and using an IR sensor at the end of the belt to check for unsorted objects.
+  - Identifies sorting errors by tracking sorting time and using an IR sensor at the end of the belt to check for unsorted objects.
 - **Routing Circuit**:
-  - A 74139 dual 2-to-4 decoder routes PWM signals from Timer1 to the appropriate servo based on a 2-bit control signal.
+  - A 74139 dual 2-to-4 decoder routes PWM signals from Timer1 to the appropriate servo motor based on a 2-bit control signal.
   - A 74147 10-to-4 priority encoder converts signals from four IR sensors (three for servo proximity and one for error detection) into a 3-bit binary value for the microcontroller.
 - **System Timing**:
   - Calculates time spent sorting and stores it in EEPROM memory.
 - **Data Logging and Monitoring**:
-  - Logs the number of sorted objects, sorting time, and error occurrences into EEPROM for performance analysis.
+  - Logs the number of sorted objects, sorting time, and error occurrences into EEPROM memory for performance analysis.
 - **Alerts**:
   - LEDs indicate production line status (running, paused, or stopped due to errors).
   - A buzzer alerts the operator in critical situations.
-- **Power Supply**:
-  - A 9V power adapter powers the DC motor driver.
-  - A 5V power supply powers the logic circuits.
 
 ## Components
 
