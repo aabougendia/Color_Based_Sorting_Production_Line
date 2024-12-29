@@ -7,10 +7,10 @@ This project is a production line system designed to automate sorting tasks usin
 
 ## Features
 
-- **Color Detection**: Utilizes the TCS3200 sensor with Timer0 to detect object colors (red, green, blue).
+- **Color Detection**: Utilizes the TCS3200 sensor with Timer0 and an external interrupt to detect object colors (red, green, blue).
 - **Object Detection**:
   - An IR sensor identifies objects approaching the color sensor.
-  - Three additional IR sensors, paired with SG90 servos and 3D-printed linear actuators, manage object movement when near designated servos.
+  - Three additional IR sensors, paired with SG90 servos and 3D-printed linear actuators, manage object movement near designated servos.
 - **Conveyor Belt Control**:
   - A DC motor, powered by PWM signals from Timer1, drives a 3D-printed conveyor belt.
   - The L298N DC motor driver ensures precise motor control.
@@ -24,6 +24,8 @@ This project is a production line system designed to automate sorting tasks usin
 - **Routing Circuit**:
   - A 74139 dual 2-to-4 decoder routes PWM signals from Timer1 to the appropriate servo based on a 2-bit control signal.
   - A 74147 10-to-4 priority encoder converts signals from four IR sensors (three for servo proximity and one for error detection) into a 3-bit binary value for the microcontroller.
+- **System Timing**:
+  - Calculates time spent sorting and stores it in EEPROM memory.
 - **Data Logging and Monitoring**:
   - Logs the number of sorted objects, sorting time, and error occurrences into EEPROM for performance analysis.
 - **Alerts**:
@@ -36,20 +38,20 @@ This project is a production line system designed to automate sorting tasks usin
 ## Components
 
 - **Microcontroller**: ATmega32
-- **Color Sensor**: TCS3200
-- **IR Sensors**: Five IR sensors (one for color sensor, three for servos, and one for error detection)
-- **Servo Motors**: SG90 servos with 3D-printed linear actuators
-- **DC Motor**: Drives the conveyor belt
+- **Color Sensor**: TCS3200 with MCU Timer0 and EXTI0 to capture the color frequency and process it
+- **IR Sensors**: Five IR sensors (one for color sensor proximity, three for the sorting mechanism, and one for error detection)
+- **Servo Motors**: three SG90 180° servos with 3D-printed linear actuators
+- **DC Motor**: 12v DC geared motor to drive the conveyor belt
 - **Motor Driver**: L298N
 - **Decoders and Encoders**:
   - 74139 dual 2-to-4 decoder
   - 74147 10-to-4 priority encoder
 - **Power Supplies**:
-  - 9V power adapter
-  - 5V power supply
+  - 9V 1A power adapter
+  - 5V 2A power supply
 - **Display**: Character LCD for system status and error messages
-- **Keypad**: For operator input
-- **Buzzer and LEDs**: For alerts
+- **Keypad**: 4x1 Keypad For operator input
+- **Buzzer and LEDs**: Three LEDs and a 5v buzzer for system status and alerts
 - **Additional Components**:
   - 0.47uF capacitor and a 1N4004 diode to rectify and smooth current fluctuations from the DC motor
 
@@ -60,7 +62,7 @@ This project is a production line system designed to automate sorting tasks usin
 3. Based on the detected color, the routing circuit directs PWM signals to the appropriate servo, moving the object to its designated bin.
 4. A DC motor drives the conveyor belt with PWM signals ensuring precise speed.
 5. Sorting errors are automatically detected and logged for analysis.
-6. Operators interact with the system through the keypad and monitor status and errors on the LCD.
+6. Operators interact with the system through the keypad and monitor the status and errors on the LCD.
 
 ## How to Use
 
